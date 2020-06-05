@@ -1,0 +1,20 @@
+
+#simple introduction to scraping text from an article with R and rvest 
+
+install.packages("rvest")
+
+library("rvest")
+
+article102 <- read_html("https://medium.com/@gregorymcgann3580/capital-consciousness-406255d32fab")
+
+article102 %>%
+  html_nodes("title") %>%
+  html_text()
+
+article102 %>%
+  html_nodes("p") %>%
+  html_text()
+
+article102 %>%
+  html_nodes("a") %>%
+  html_attr("href")
